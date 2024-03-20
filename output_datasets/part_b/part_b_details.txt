@@ -1,0 +1,30 @@
+ High-Level Explanation and Complexity Analysis of the Route Optimization Code
+
+ The script optimizes delivery routes for two datasets using a nearest neighbor heuristic. Here's a breakdown:
+
+ 1. Data Loading:
+    - Reads two datasets of delivery locations.
+    - Each dataset corresponds to a different set of delivery points.
+
+ 2. Route Calculation Function (calculate_route):
+    - Initializes necessary structures for tracking delivery sequences, vehicle assignments, and positions.
+    - For each vehicle, iteratively finds the nearest unvisited delivery point until reaching capacity or covering all points.
+    - Calculates and updates the total distance traveled for each vehicle, including the return trip to the depot.
+
+ 3. Optimization Execution:
+    - Executes the route calculation for each dataset with specified vehicle capacities.
+    - Produces optimized routing information, updating datasets with sequence and vehicle assignments.
+
+ 4. Summary Output:
+    - Aggregates and saves the total distances traveled by each vehicle for both datasets.
+
+ Time Complexity:
+ - The main computational task is finding the nearest unvisited delivery point for each vehicle.
+ - For each vehicle, in the worst-case scenario, this operation is O(n) for each point, leading to O(n^2) complexity over all points.
+ - The complexity per vehicle is O(n^2), and since the number of vehicles is constant (two), it doesn't scale with n, keeping the overall time complexity O(n^2).
+
+ Space Complexity:
+ - Storage is required for arrays tracking visited points, vehicle positions, and delivery sequences, scaling linearly with the number of points, n.
+ - Thus, the space complexity is O(n), as these structures grow linearly with the input size.
+
+ In summary, the script is efficient for small to medium-sized datasets, offering a practical approach to route optimization with a focus on proximity and capacity constraints.
